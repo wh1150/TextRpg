@@ -563,6 +563,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Archer.h" />
+    <ClInclude Include="include\Inventory.h" />
     <ClInclude Include="include\Item.h" />
     <ClInclude Include="include\Mage.h" />
     <ClInclude Include="include\Monster.h" />

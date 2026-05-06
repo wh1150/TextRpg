@@ -58,7 +58,7 @@ namespace RPGConst {
 			constexpr const char* ATTACK_ROGUE = "Sneaks and strikes from behind!\n";
 			constexpr const char* ATTACK_ARCHER = "Shoot arrow to the enemy!\n";
 			constexpr const char* BATTLE_START = "[ Battle Start! ] %s(%s) vs %s\n\n";
-			constexpr const char* PLAYER_TURN = "--- Player Turn ---\n";
+			constexpr const char* PLAYER_TURN = "--- Player Turn ---\n1. Attack\n2. Use Item\nChoose: ";
 			constexpr const char* ENEMY_TURN = "--- Enemy Turn ---\n";
 			constexpr const char* LEVEL_UP = "Level up condition met\n  -> Level Up! Lv.1 -> Lv.2\n  -> HP +10, MP +5, Attack +5\n";
 			constexpr const char* HP_POTION_USE = "HP Potion used! HP restored by 50 (%d -> %d)";

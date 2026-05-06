@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <string>
 #include <iostream>
-#include <vector>
 
+#include "Inventory.h"
 #include "Item.h"
 
 using namespace std;
@@ -33,10 +33,10 @@ public:
 	void setLevel(int level) { this->level = level; }
 	int getExp() const { return exp; }
 	void setExp(int exp) { this->exp = exp; }
-	vector<Item*> getInventory() const { return this->inventory; }
+	Inventory<Item*> getInventory() const { return this->inventory; }
 	
 protected:
 	string name, job;
 	int hp, mp, atk, def, level = 1, exp = 0, maxExp;
-	vector<Item*> inventory;
+	Inventory<Item*> inventory;
 };

@@ -18,7 +18,18 @@ bool Warrior::attack(Monster* mon) {
 		cout << " (Dead)" << "\n\n";
 		cout << "★ Victory!" << "\n";
 		printf("  -> Get : %s\n  (Will be saved to inventory in the next STEP)\n\n", mon->getDropItemName().c_str());
-		this->inventory.push_back(new Item(mon->getDropItemName(), mon->getDropItemPrice()));
+		
+		this->inventory.addItem(new Item(mon->getDropItemName(), mon->getDropItemPrice()));
+		this->exp += mon->getExpReward();
+		if (this->exp >= this->maxExp) {
+			this->level++;
+			this->maxExp = 100 + (this->level - 1) * 50;
+			this->exp -= this->maxExp;
+			this->setHp(this->getHp() + 10);
+			this->setMp(this->getMp() + 5);
+			this->setAtk(this->getAtk() + 5);
+			cout << RPGConst::Message::Fight::LEVEL_UP << "\n";
+		}
 		return false;
 	}
 	return true;

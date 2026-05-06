@@ -5,7 +5,7 @@
 #include <iostream>
 
 using namespace std;
-Player::Player(string name, int* stat, string job) {
+Player::Player(string name, int* stat, string job) : inventory(RPGConst::Init::INVENTORY_SIZE){
 	this->name = name;
 	this->hp = stat[RPGConst::Status::HEALTH_POINT];
 	this->mp = stat[RPGConst::Status::MANA_POINT];
@@ -19,16 +19,15 @@ Player::Player(string name, int* stat, string job) {
 }
 
 Player::~Player() {
-	for (auto inventory : inventory) delete inventory;
-	inventory.clear();
+	for (auto inv : inventory) delete inv;
 }
 void Player::printPlayerStatus() {
-	printf(RPGConst::Message::InitSystem::CURRENT_STATUS_AFTER_JOB, this->name.c_str(), this->job.c_str(), this->level, this->hp, this->mp, this->atk, this->def);
+	printf(RPGConst::Message::InitSystem::CURRENT_STATUS_AFTER_JOB, this->name.c_str(), this->job.c_str(), this->level, this->exp, this->maxExp, this->hp, this->mp, this->atk, this->def);
 }
 
 void Player::printInventory() {
-	printf("[ inventory (%d/%d) ]", this->inventory.size(), RPGConst::Init::INVENTORY_SIZE);
-	if (this->inventory.empty())	
+	printf("[ inventory (%d/%d) ]\n", this->inventory.getSize(), this->inventory.getCapacity());
+	if (this->inventory.getSize() == 0)	
 		printf("Inventory is empty!\n");
 	else {
 		int i = 1;
